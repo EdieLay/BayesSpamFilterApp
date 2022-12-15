@@ -22,6 +22,8 @@ namespace BayesSpamFilterApp
             }
 
             filter.txtproc = new(GetStem);
+            Thread updating = new(filter.UpdateFrequencies);
+            updating.Start();
         }
 
         class InvalidMessageException: Exception

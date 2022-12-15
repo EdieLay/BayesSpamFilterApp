@@ -21,7 +21,7 @@ namespace BayesSpamFilterApp
             this.GetStem = GetStem;
         }
 
-        List<string> ProcessLineDB(string line)
+        public List<string> ProcessLineDB(string line)
         {
             bool isspam;
 
@@ -36,6 +36,8 @@ namespace BayesSpamFilterApp
                 SpamHamFreq.num_of_spam++;
             }
 
+            line = line.Remove(0, 5);
+
             List<string> words = ProcessWords(line);
             words.Insert(0, isspam.ToString());
 
@@ -44,7 +46,7 @@ namespace BayesSpamFilterApp
 
         public List<string> ProcessWords(string line)
         {
-            line = line.Remove(0, 5).ToLower().Replace("ё", "е"); // удаляем начало из 5 букв, приводим в нижний регистр, меняем ё на е
+            line = line.ToLower().Replace("ё", "е"); // удаляем начало из 5 букв, приводим в нижний регистр, меняем ё на е
 
             char[] separators = new char[] { ' ', ',', '.', '-', '(', ')', '/', ':', ';', '!', '?', '*', '"', '>', '<', '\'', '`' };
             string[] words = line.Split(separators, StringSplitOptions.RemoveEmptyEntries); // разделяем строчку на слова, удаляя пустые строки

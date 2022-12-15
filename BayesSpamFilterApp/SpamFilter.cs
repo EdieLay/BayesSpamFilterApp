@@ -55,57 +55,27 @@ namespace BayesSpamFilterApp
             return e_spam_prob / (e_spam_prob + e_ham_prob);
         }
 
-        void ProcessLine(string line, GetStemDelegate GetStem)
+        public void UpdateFrequencies()
         {
+            List<string> words;
             bool isspam;
 
-            if (line[0] == 'М') // если начинается на М, то это не спам
+            foreach (string line in wordsdb.lines) // в wordsdb.lines хранятся строчки из БД с сообщениями
             {
-                isspam = false;
-                SpamHamFreq.num_of_ham++;
-            }
-            else
-            {
-                isspam = true;
-                SpamHamFreq.num_of_spam++;
+                words = txtproc.ProcessLineDB(line); // возвращает список стем слов, где нулевой элемент показывает, сообщение спам или нет
+                isspam = words[0] == "True";
+                words.RemoveAt(0); // удаляем вспомогательный элемент
+
+                foreach (string word in words)
+                    wordsdb.AddWordToDictionary(word, isspam);
             }
 
-            List<string> words = ProcessWords(line);
-            
-            foreach (string word in words)
-                wordsdb.AddWordToDictionary(word, isspam);
+            foreach (var word in wordsdb.wordsfreq) // считаем относитульную вероятность встречи слова для каждого типа сообщений
+            {
+                word.Value.spam_prob = (((double)word.Value.met_in_spam + 1) / ((double)SpamHamFreq.num_of_spam + 2)); // добавляем 1 в числитель и 2 в знаменатель
+                word.Value.ham_prob = (((double)word.Value.met_in_ham + 1) / ((double)SpamHamFreq.num_of_ham + 2));    // чтобы не было нулевых вероятностей
+            }
         }
-
-        public List<string> ProcessWords(string line)
-        {
-            line = line.Remove(0, 5).ToLower().Replace("ё", "е"); // удаляем начало из 5 букв, приводим в нижний регистр, меняем ё на е
-
-            char[] separators = new char[] { ' ', ',', '.', '-', '(', ')', '/', ':', ';', '!', '?', '*', '"', '>', '<', '\'', '`' };
-            string[] words = line.Split(separators, StringSplitOptions.RemoveEmptyEntries); // разделяем строчку на слова, удаляя пустые строки
-            List<string> russianwords = new List<string>();
-
-            foreach (string word in words) // перебираем слова в текущей строке
-            {
-                if (!IsRussian(word))
-                    continue;
-
-                string temp = word;
-                temp = GetStem(temp); // проводим стемминг
-                russianwords.Add(temp);
-            }
-            return russianwords;
-        }
-
-        public bool IsRussian(string word) // проверка на то, все ли буквы в слове русские
-        {
-            foreach (char letter in word)
-            {
-                if (!(letter >= 'а' && letter <= 'я')) // оставляем только слова с русскими буквами
-                    return false;
-            }
-            return true;
-        }
-
 
     }
 
