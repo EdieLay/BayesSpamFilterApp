@@ -22,7 +22,7 @@ namespace BayesSpamFilterApp
 
         public void GetLinesFromDB()
         { 
-            using (var reader = new StreamReader("C:\\Users\\user\\source\\repos\\BayesSpamFilterApp\\BayesSpamFilterApp\\txtfiles\\spamdb.txt", System.Text.Encoding.Default)) // файл с письмами
+            using (var reader = new StreamReader("..\\..\\..\\txtfiles\\spamdb.txt", System.Text.Encoding.Default)) // файл с письмами
             {
                 string? line;
 
