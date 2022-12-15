@@ -10,6 +10,7 @@ namespace BayesSpamFilterApp
     internal class WordsDB
     {
         public Dictionary<string, SpamHamFreq> wordsfreq { get; set; }
+        public List<string> lines { get; set; }
         
 
         public WordsDB()
@@ -82,7 +83,7 @@ namespace BayesSpamFilterApp
         }
 
 
-        void AddWordToDictionary(string word, bool isspam)
+        public void AddWordToDictionary(string word, bool isspam)
         {
             if (wordsfreq.ContainsKey(word)) // если такое слово уже есть в словаре, то вызываем метод NewEntrance()
             {
