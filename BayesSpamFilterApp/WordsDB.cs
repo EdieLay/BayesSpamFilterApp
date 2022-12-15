@@ -18,7 +18,7 @@ namespace BayesSpamFilterApp
             wordsfreq = new();
         }
 
-        public void UpdateWordsFrequencies(GetStemDelegate GetStem)
+        public List<string> GetLinesFromDB(GetStemDelegate GetStem)
         { 
             using (var reader = new StreamReader(TxtFiles.spamdb, System.Text.Encoding.Default)) // файл с письмами
             {
@@ -26,8 +26,10 @@ namespace BayesSpamFilterApp
 
                 while ((line = reader.ReadLine()) != null) // считываем строчки, у которых начало либо "Мэри,...", либо "спам,..."
                 {
-                    ProcessLine(line, GetStem); // надо сделать эту штуку многопоточной
+                    lines.Add(line);
                 }
+
+                return lines;
 
                 foreach (var word in wordsfreq) // считаем относитульную вероятность встречи слова для каждого типа сообщений
                 {

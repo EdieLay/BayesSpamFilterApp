@@ -10,6 +10,7 @@ namespace BayesSpamFilterApp
         private void button_checkmsg_Click(object sender, EventArgs e)
         {
             GetStemDelegate GetStem;
+            SpamFilter filter = new();
             StemmerPorter porter = new();
             if (radioButton_Porter.Checked)
             {
@@ -19,8 +20,8 @@ namespace BayesSpamFilterApp
             {
                 GetStem = porter.GetStem; // «¿Ã≈Õ»“‹ Õ¿ ƒ–”√Œ… —“≈ÃÃ≈–
             }
-            SpamFilter filter = new(GetStem);
 
+            filter.txtproc = new(GetStem);
         }
 
         class InvalidMessageException: Exception

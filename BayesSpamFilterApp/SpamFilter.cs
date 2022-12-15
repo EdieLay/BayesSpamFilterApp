@@ -18,12 +18,12 @@ namespace BayesSpamFilterApp
     internal class SpamFilter
     {
         WordsDB wordsdb { get; set; }
-        GetStemDelegate GetStem;
+        public GetStemDelegate GetStem { get; set; }
 
-        public SpamFilter(GetStemDelegate GetStem)
+        public SpamFilter()
         {
             wordsdb = new();
-            wordsdb.UpdateWordsFrequencies(GetStem);
+            wordsdb.GetLinesFromDB();
         }
 
         public bool IsSpam(string[] words_in_mes, FilterHarshness percent)
