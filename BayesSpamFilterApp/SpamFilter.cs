@@ -27,18 +27,18 @@ namespace BayesSpamFilterApp
             txtproc = new TextProcessor();
         }
 
-        public bool IsSpam(string[] words_in_mes, FilterHarshness percent)
+        public bool IsSpam(List<string> words_in_msg, FilterHarshness percent)
         {
             double prob = (double)percent / 100;
-            return ProbOfSpam(words_in_mes) >= prob;
+            return ProbOfSpam(words_in_msg) >= prob;
         }
 
-        double ProbOfSpam(string[] words_in_mes) 
+        double ProbOfSpam(List<string> words_in_msg) 
         {
             double spam_prob = 0, ham_prob = 0; // вероятности, что сообщение спам или хэм
             foreach (var word in wordsdb.wordsfreq)
             {
-                if (words_in_mes.Contains(word.Key)) // если слово из словаря есть в сообщении, то прямое событие, иначе обратное
+                if (words_in_msg.Contains(word.Key)) // если слово из словаря есть в сообщении, то прямое событие, иначе обратное
                 {
                     spam_prob += Math.Log(word.Value.spam_prob); // считаем сумму логарифмов вероятностей, т.к. это аналогично умножению вероятностей
                     ham_prob += Math.Log(word.Value.ham_prob);   // потом просто экспоненту возведём в эту степень
@@ -53,6 +53,13 @@ namespace BayesSpamFilterApp
             double e_ham_prob = Math.Exp(ham_prob);
 
             return e_spam_prob / (e_spam_prob + e_ham_prob);
+        }
+
+        public List<string> GetMessageStems(string message)
+        {
+            List<string> words_in_msg = txtproc.ProcessWords(message);
+            words_in_msg = words_in_msg.Distinct().ToList();
+            return words_in_msg;
         }
 
         public void UpdateFrequencies()

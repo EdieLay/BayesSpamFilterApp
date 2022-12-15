@@ -37,9 +37,9 @@
             this.button_checkmsg = new System.Windows.Forms.Button();
             this.groupBox_filtering = new System.Windows.Forms.GroupBox();
             this.button_tip = new System.Windows.Forms.Button();
-            this.radioButton_high = new System.Windows.Forms.RadioButton();
-            this.radioButton_middle = new System.Windows.Forms.RadioButton();
-            this.radioButton_low = new System.Windows.Forms.RadioButton();
+            this.radioButton_harsh = new System.Windows.Forms.RadioButton();
+            this.radioButton_mid = new System.Windows.Forms.RadioButton();
+            this.radioButton_soft = new System.Windows.Forms.RadioButton();
             this.toolTip_harshness = new System.Windows.Forms.ToolTip(this.components);
             this.label_result = new System.Windows.Forms.Label();
             this.groupBox_stemmers.SuspendLayout();
@@ -112,9 +112,9 @@
             // groupBox_filtering
             // 
             this.groupBox_filtering.Controls.Add(this.button_tip);
-            this.groupBox_filtering.Controls.Add(this.radioButton_high);
-            this.groupBox_filtering.Controls.Add(this.radioButton_middle);
-            this.groupBox_filtering.Controls.Add(this.radioButton_low);
+            this.groupBox_filtering.Controls.Add(this.radioButton_harsh);
+            this.groupBox_filtering.Controls.Add(this.radioButton_mid);
+            this.groupBox_filtering.Controls.Add(this.radioButton_soft);
             this.groupBox_filtering.Location = new System.Drawing.Point(651, 195);
             this.groupBox_filtering.Name = "groupBox_filtering";
             this.groupBox_filtering.Size = new System.Drawing.Size(277, 125);
@@ -139,37 +139,37 @@
         "у");
             this.button_tip.UseVisualStyleBackColor = false;
             // 
-            // radioButton_high
+            // radioButton_harsh
             // 
-            this.radioButton_high.AutoSize = true;
-            this.radioButton_high.Location = new System.Drawing.Point(14, 86);
-            this.radioButton_high.Name = "radioButton_high";
-            this.radioButton_high.Size = new System.Drawing.Size(89, 24);
-            this.radioButton_high.TabIndex = 2;
-            this.radioButton_high.Text = "Жесткий";
-            this.radioButton_high.UseVisualStyleBackColor = true;
+            this.radioButton_harsh.AutoSize = true;
+            this.radioButton_harsh.Location = new System.Drawing.Point(14, 86);
+            this.radioButton_harsh.Name = "radioButton_harsh";
+            this.radioButton_harsh.Size = new System.Drawing.Size(89, 24);
+            this.radioButton_harsh.TabIndex = 2;
+            this.radioButton_harsh.Text = "Жесткий";
+            this.radioButton_harsh.UseVisualStyleBackColor = true;
             // 
-            // radioButton_middle
+            // radioButton_mid
             // 
-            this.radioButton_middle.AutoSize = true;
-            this.radioButton_middle.Location = new System.Drawing.Point(14, 56);
-            this.radioButton_middle.Name = "radioButton_middle";
-            this.radioButton_middle.Size = new System.Drawing.Size(91, 24);
-            this.radioButton_middle.TabIndex = 1;
-            this.radioButton_middle.Text = "Средний";
-            this.radioButton_middle.UseVisualStyleBackColor = true;
+            this.radioButton_mid.AutoSize = true;
+            this.radioButton_mid.Location = new System.Drawing.Point(14, 56);
+            this.radioButton_mid.Name = "radioButton_mid";
+            this.radioButton_mid.Size = new System.Drawing.Size(91, 24);
+            this.radioButton_mid.TabIndex = 1;
+            this.radioButton_mid.Text = "Средний";
+            this.radioButton_mid.UseVisualStyleBackColor = true;
             // 
-            // radioButton_low
+            // radioButton_soft
             // 
-            this.radioButton_low.AutoSize = true;
-            this.radioButton_low.Checked = true;
-            this.radioButton_low.Location = new System.Drawing.Point(14, 26);
-            this.radioButton_low.Name = "radioButton_low";
-            this.radioButton_low.Size = new System.Drawing.Size(82, 24);
-            this.radioButton_low.TabIndex = 0;
-            this.radioButton_low.TabStop = true;
-            this.radioButton_low.Text = "Мягкий";
-            this.radioButton_low.UseVisualStyleBackColor = true;
+            this.radioButton_soft.AutoSize = true;
+            this.radioButton_soft.Checked = true;
+            this.radioButton_soft.Location = new System.Drawing.Point(14, 26);
+            this.radioButton_soft.Name = "radioButton_soft";
+            this.radioButton_soft.Size = new System.Drawing.Size(82, 24);
+            this.radioButton_soft.TabIndex = 0;
+            this.radioButton_soft.TabStop = true;
+            this.radioButton_soft.Text = "Мягкий";
+            this.radioButton_soft.UseVisualStyleBackColor = true;
             // 
             // toolTip_harshness
             // 
@@ -219,9 +219,9 @@
         private GroupBox groupBox_stemmers;
         private Button button_checkmsg;
         private GroupBox groupBox_filtering;
-        private RadioButton radioButton_high;
-        private RadioButton radioButton_middle;
-        private RadioButton radioButton_low;
+        private RadioButton radioButton_harsh;
+        private RadioButton radioButton_mid;
+        private RadioButton radioButton_soft;
         private Button button_tip;
         private ToolTip toolTip_harshness;
         private Label label_result;

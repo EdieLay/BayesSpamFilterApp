@@ -95,10 +95,10 @@ namespace BayesSpamFilterApp
             }
             else return word[..(word.Length - RVlength + RV.Length)];
 
-            if (RV.Length > 2 & RV[..^2] == "нн") RV = RV[..^1];    // 4 шаг
+            if (RV.Length > 2 && RV[..^2] == "нн") RV = RV[..^1];    // 4 шаг
             DeleteEnding(ref RV, Superlative);
-            if (RV.Length > 2 & RV[..^2] == "нн") RV = RV[..^1];
-            if (RV.Length > 1 & RV[^1] == 'ь') RV = RV[..^1];
+            if (RV.Length > 2 && RV[..^2] == "нн") RV = RV[..^1];
+            if (RV.Length > 1 && RV[^1] == 'ь') RV = RV[..^1];
             return word[..(word.Length - RVlength + RV.Length)];
         }
 

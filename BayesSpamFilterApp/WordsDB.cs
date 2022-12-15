@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,11 +17,12 @@ namespace BayesSpamFilterApp
         public WordsDB()
         {
             wordsfreq = new();
+            lines = new List<string>();
         }
 
         public void GetLinesFromDB()
         { 
-            using (var reader = new StreamReader(TxtFiles.spamdb, System.Text.Encoding.Default)) // файл с письмами
+            using (var reader = new StreamReader("C:\\Users\\user\\source\\repos\\BayesSpamFilterApp\\BayesSpamFilterApp\\txtfiles\\spamdb.txt", System.Text.Encoding.Default)) // файл с письмами
             {
                 string? line;
 
@@ -39,6 +41,7 @@ namespace BayesSpamFilterApp
 
             }            
         }
+
 
 
         void ProcessLine(string line, GetStemDelegate GetStem)
