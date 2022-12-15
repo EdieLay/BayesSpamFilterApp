@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BayesSpamFilterApp
 {
-    public delegate string GetStemDelegate(string value);
+    
 
     public enum FilterHarshness // процент, свыше которого письмо определится как спам (чем больше, тем меньше шанс срабатывания)
     {
@@ -18,12 +18,13 @@ namespace BayesSpamFilterApp
     internal class SpamFilter
     {
         WordsDB wordsdb { get; set; }
-        public GetStemDelegate GetStem { get; set; }
+        public TextProcessor txtproc { get; set; }
 
         public SpamFilter()
         {
             wordsdb = new();
             wordsdb.GetLinesFromDB();
+            txtproc = new TextProcessor();
         }
 
         public bool IsSpam(string[] words_in_mes, FilterHarshness percent)
