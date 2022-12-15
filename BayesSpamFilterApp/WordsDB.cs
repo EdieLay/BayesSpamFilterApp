@@ -10,15 +10,14 @@ namespace BayesSpamFilterApp
     internal class WordsDB
     {
         public Dictionary<string, SpamHamFreq> wordsfreq { get; set; }
-        GetStemDelegate GetStem;
+        
 
-        public WordsDB(GetStemDelegate GetStem)
+        public WordsDB()
         {
-            this.GetStem = GetStem;
             wordsfreq = new();
         }
 
-        public void UpdateWordsFrequencies()
+        public void UpdateWordsFrequencies(GetStemDelegate GetStem)
         { 
             using (var reader = new StreamReader(TxtFiles.spamdb, System.Text.Encoding.Default)) // файл с письмами
             {
@@ -26,7 +25,7 @@ namespace BayesSpamFilterApp
 
                 while ((line = reader.ReadLine()) != null) // считываем строчки, у которых начало либо "Мэри,...", либо "спам,..."
                 {
-                    ProcessLine(line); // надо сделать эту штуку многопоточной
+                    ProcessLine(line, GetStem); // надо сделать эту штуку многопоточной
                 }
 
                 foreach (var word in wordsfreq) // считаем относитульную вероятность встречи слова для каждого типа сообщений
@@ -39,10 +38,8 @@ namespace BayesSpamFilterApp
         }
 
 
-        void ProcessLine(string line)
+        void ProcessLine(string line, GetStemDelegate GetStem)
         {
-            string[] words;
-            char[] separators = new char[] { ' ', ',', '.', '-', '(', ')', '/', ':', ';', '!', '?', '*', '"', '>', '<', '\'', '`' };
             bool isspam;
 
             if (line[0] == 'М') // если начинается на М, то это не спам
@@ -56,6 +53,8 @@ namespace BayesSpamFilterApp
                 SpamHamFreq.num_of_spam++;
             }
 
+            string[] words;
+            char[] separators = new char[] { ' ', ',', '.', '-', '(', ')', '/', ':', ';', '!', '?', '*', '"', '>', '<', '\'', '`' };
             line = line.Remove(0, 5).ToLower().Replace("ё", "е"); // удаляем начало из 5 букв, приводим в нижний регистр, меняем ё на е
             words = line.Split(separators, StringSplitOptions.RemoveEmptyEntries); // разделяем строчку на слова, удаляя пустые строки
 

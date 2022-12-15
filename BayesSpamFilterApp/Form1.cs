@@ -23,5 +23,10 @@ namespace BayesSpamFilterApp
 
         }
 
+        class InvalidMessageException: Exception
+        {
+
+        }
+
     }
 }
