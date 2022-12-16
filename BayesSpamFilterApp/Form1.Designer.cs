@@ -32,7 +32,7 @@
             this.label_input = new System.Windows.Forms.Label();
             this.textBox_message = new System.Windows.Forms.TextBox();
             this.radioButton_Porter = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton_Z = new System.Windows.Forms.RadioButton();
             this.groupBox_stemmers = new System.Windows.Forms.GroupBox();
             this.button_checkmsg = new System.Windows.Forms.Button();
             this.groupBox_filtering = new System.Windows.Forms.GroupBox();
@@ -76,21 +76,21 @@
             this.radioButton_Porter.Text = "Стеммер Портера";
             this.radioButton_Porter.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButton_Z
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(15, 62);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(157, 24);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Какой-то стеммер";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton_Z.AutoSize = true;
+            this.radioButton_Z.Location = new System.Drawing.Point(15, 62);
+            this.radioButton_Z.Name = "radioButton_Z";
+            this.radioButton_Z.Size = new System.Drawing.Size(73, 24);
+            this.radioButton_Z.TabIndex = 3;
+            this.radioButton_Z.TabStop = true;
+            this.radioButton_Z.Text = "StemZ";
+            this.radioButton_Z.UseVisualStyleBackColor = true;
             // 
             // groupBox_stemmers
             // 
             this.groupBox_stemmers.Controls.Add(this.radioButton_Porter);
-            this.groupBox_stemmers.Controls.Add(this.radioButton2);
+            this.groupBox_stemmers.Controls.Add(this.radioButton_Z);
             this.groupBox_stemmers.Location = new System.Drawing.Point(651, 80);
             this.groupBox_stemmers.Name = "groupBox_stemmers";
             this.groupBox_stemmers.Size = new System.Drawing.Size(277, 109);
@@ -215,7 +215,7 @@
         private Label label_input;
         private TextBox textBox_message;
         private RadioButton radioButton_Porter;
-        private RadioButton radioButton2;
+        private RadioButton radioButton_Z;
         private GroupBox groupBox_stemmers;
         private Button button_checkmsg;
         private GroupBox groupBox_filtering;

@@ -32,13 +32,6 @@ namespace BayesSpamFilterApp
                 }
 
                 return;
-
-                foreach (var word in wordsfreq) // считаем относитульную вероятность встречи слова для каждого типа сообщений
-                {
-                    word.Value.spam_prob = (((double)word.Value.met_in_spam + 1) / ((double)SpamHamFreq.num_of_spam + 2)); // добавляем 1 в числитель и 2 в знаменатель
-                    word.Value.ham_prob = (((double)word.Value.met_in_ham + 1) / ((double)SpamHamFreq.num_of_ham + 2));    // чтобы не было нулевых вероятностей
-                }
-
             }            
         }
 

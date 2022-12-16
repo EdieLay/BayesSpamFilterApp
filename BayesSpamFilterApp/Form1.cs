@@ -12,8 +12,10 @@ namespace BayesSpamFilterApp
 
         private void button_checkmsg_Click(object sender, EventArgs e)
         {
+            button_checkmsg.Enabled = false;
             GetStemDelegate GetStem;
             StemmerPorter porter = new();
+            StemmerZ stemz = new StemmerZ();
             FilterHarshness harshness;
             if (radioButton_Porter.Checked)
             {
@@ -21,7 +23,7 @@ namespace BayesSpamFilterApp
             }
             else
             {
-                GetStem = porter.GetStem; // «¿Ã≈Õ»“‹ Õ¿ ƒ–”√Œ… —“≈ÃÃ≈–
+                GetStem = stemz.GetStem;
             }
 
             filter.txtproc = new(GetStem);
@@ -50,6 +52,7 @@ namespace BayesSpamFilterApp
                 label_result.ForeColor = System.Drawing.Color.Green;
                 label_result.Text = "ÌÂ ÒÔ‡Ï";
             }
+            button_checkmsg.Enabled = true;
         }
 
         class InvalidMessageException: Exception
