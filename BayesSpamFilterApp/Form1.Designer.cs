@@ -42,6 +42,7 @@
             this.radioButton_soft = new System.Windows.Forms.RadioButton();
             this.toolTip_harshness = new System.Windows.Forms.ToolTip(this.components);
             this.label_result = new System.Windows.Forms.Label();
+            this.radioButton_Stemka = new System.Windows.Forms.RadioButton();
             this.groupBox_stemmers.SuspendLayout();
             this.groupBox_filtering.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +69,7 @@
             // 
             this.radioButton_Porter.AutoSize = true;
             this.radioButton_Porter.Checked = true;
-            this.radioButton_Porter.Location = new System.Drawing.Point(15, 32);
+            this.radioButton_Porter.Location = new System.Drawing.Point(13, 32);
             this.radioButton_Porter.Name = "radioButton_Porter";
             this.radioButton_Porter.Size = new System.Drawing.Size(156, 24);
             this.radioButton_Porter.TabIndex = 2;
@@ -79,21 +80,22 @@
             // radioButton_Z
             // 
             this.radioButton_Z.AutoSize = true;
-            this.radioButton_Z.Location = new System.Drawing.Point(15, 62);
+            this.radioButton_Z.Location = new System.Drawing.Point(13, 62);
             this.radioButton_Z.Name = "radioButton_Z";
-            this.radioButton_Z.Size = new System.Drawing.Size(73, 24);
+            this.radioButton_Z.Size = new System.Drawing.Size(105, 24);
             this.radioButton_Z.TabIndex = 3;
             this.radioButton_Z.TabStop = true;
-            this.radioButton_Z.Text = "StemZ";
+            this.radioButton_Z.Text = "Стеммер Z";
             this.radioButton_Z.UseVisualStyleBackColor = true;
             // 
             // groupBox_stemmers
             // 
+            this.groupBox_stemmers.Controls.Add(this.radioButton_Stemka);
             this.groupBox_stemmers.Controls.Add(this.radioButton_Porter);
             this.groupBox_stemmers.Controls.Add(this.radioButton_Z);
             this.groupBox_stemmers.Location = new System.Drawing.Point(651, 80);
             this.groupBox_stemmers.Name = "groupBox_stemmers";
-            this.groupBox_stemmers.Size = new System.Drawing.Size(277, 109);
+            this.groupBox_stemmers.Size = new System.Drawing.Size(277, 129);
             this.groupBox_stemmers.TabIndex = 4;
             this.groupBox_stemmers.TabStop = false;
             this.groupBox_stemmers.Text = "Выберите стеммер";
@@ -101,7 +103,7 @@
             // button_checkmsg
             // 
             this.button_checkmsg.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button_checkmsg.Location = new System.Drawing.Point(651, 326);
+            this.button_checkmsg.Location = new System.Drawing.Point(651, 346);
             this.button_checkmsg.Name = "button_checkmsg";
             this.button_checkmsg.Size = new System.Drawing.Size(277, 79);
             this.button_checkmsg.TabIndex = 5;
@@ -115,7 +117,7 @@
             this.groupBox_filtering.Controls.Add(this.radioButton_harsh);
             this.groupBox_filtering.Controls.Add(this.radioButton_mid);
             this.groupBox_filtering.Controls.Add(this.radioButton_soft);
-            this.groupBox_filtering.Location = new System.Drawing.Point(651, 195);
+            this.groupBox_filtering.Location = new System.Drawing.Point(651, 215);
             this.groupBox_filtering.Name = "groupBox_filtering";
             this.groupBox_filtering.Size = new System.Drawing.Size(277, 125);
             this.groupBox_filtering.TabIndex = 6;
@@ -182,11 +184,22 @@
             // 
             this.label_result.Font = new System.Drawing.Font("Ustroke", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_result.ForeColor = System.Drawing.Color.Red;
-            this.label_result.Location = new System.Drawing.Point(664, 413);
+            this.label_result.Location = new System.Drawing.Point(664, 433);
             this.label_result.Name = "label_result";
             this.label_result.Size = new System.Drawing.Size(253, 46);
             this.label_result.TabIndex = 7;
             this.label_result.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // radioButton_Stemka
+            // 
+            this.radioButton_Stemka.AutoSize = true;
+            this.radioButton_Stemka.Location = new System.Drawing.Point(14, 92);
+            this.radioButton_Stemka.Name = "radioButton_Stemka";
+            this.radioButton_Stemka.Size = new System.Drawing.Size(79, 24);
+            this.radioButton_Stemka.TabIndex = 4;
+            this.radioButton_Stemka.TabStop = true;
+            this.radioButton_Stemka.Text = "Stemka";
+            this.radioButton_Stemka.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -225,5 +238,6 @@
         private Button button_tip;
         private ToolTip toolTip_harshness;
         private Label label_result;
+        private RadioButton radioButton_Stemka;
     }
 }

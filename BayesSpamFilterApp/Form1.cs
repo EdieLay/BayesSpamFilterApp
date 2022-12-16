@@ -5,26 +5,28 @@ namespace BayesSpamFilterApp
         public Form1()
         {
             InitializeComponent();
-            
         }
 
         SpamFilter filter = new();
 
+        GetStemDelegate GetStem;
+
+        StemmerPorter porter = new();
+        StemmerZ stemz = new();
+        StemmerStemka stemka = new();
+
+        FilterHarshness harshness;
+
         private void button_checkmsg_Click(object sender, EventArgs e)
         {
             button_checkmsg.Enabled = false;
-            GetStemDelegate GetStem;
-            StemmerPorter porter = new();
-            StemmerZ stemz = new StemmerZ();
-            FilterHarshness harshness;
+            
             if (radioButton_Porter.Checked)
-            {
                 GetStem = porter.GetStem;
-            }
-            else
-            {
+            else if(radioButton_Z.Checked)
                 GetStem = stemz.GetStem;
-            }
+            else
+                GetStem = stemka.GetStem;
 
             filter.txtproc = new(GetStem);
 

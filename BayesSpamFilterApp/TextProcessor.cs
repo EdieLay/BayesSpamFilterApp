@@ -52,12 +52,13 @@ namespace BayesSpamFilterApp
             string[] words = line.Split(separators, StringSplitOptions.RemoveEmptyEntries); // разделяем строчку на слова, удаляя пустые строки
             List<string> processedwords = new List<string>();
 
+            string temp;
             foreach (string word in words) // перебираем слова в текущей строке
             {
                 if (!IsRussian(word))
                     continue;
 
-                string temp = word;
+                temp = word;
                 temp = GetStem(temp); // проводим стемминг
                 processedwords.Add(temp);
             }

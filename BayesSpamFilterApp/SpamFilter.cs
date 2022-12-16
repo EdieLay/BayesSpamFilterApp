@@ -10,9 +10,9 @@ namespace BayesSpamFilterApp
 
     public enum FilterHarshness // процент, свыше которого письмо определится как спам (чем больше, тем меньше шанс срабатывания)
     {
-        Мягкий = 60,
+        Мягкий = 65,
         Средний = 50,
-        Жесткий = 40
+        Жесткий = 35
     }
 
     internal class SpamFilter
@@ -67,7 +67,9 @@ namespace BayesSpamFilterApp
             List<string> words;
             bool isspam;
 
-            wordsdb.wordsfreq = new();
+            wordsdb.wordsfreq = new(); // создаём новую, чтоб не накапливались частоты + слова там были бы с разным стеммингом
+            SpamHamFreq.num_of_spam = 0;
+            SpamHamFreq.num_of_ham = 0;
 
             foreach (string line in wordsdb.lines) // в wordsdb.lines хранятся строчки из БД с сообщениями
             {
