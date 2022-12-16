@@ -19,6 +19,8 @@ namespace BayesSpamFilterApp
         {
             met_in_spam = 0;
             met_in_ham = 0;
+            spam_prob = 0;
+            ham_prob = 0;
         }
 
         public void NewEntrance(bool isspam)

@@ -67,6 +67,8 @@ namespace BayesSpamFilterApp
             List<string> words;
             bool isspam;
 
+            wordsdb.wordsfreq = new();
+
             foreach (string line in wordsdb.lines) // в wordsdb.lines хранятся строчки из БД с сообщениями
             {
                 words = txtproc.ProcessLineDB(line); // возвращает список стем слов, где нулевой элемент показывает, сообщение спам или нет
