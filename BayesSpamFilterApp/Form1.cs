@@ -20,7 +20,9 @@ namespace BayesSpamFilterApp
         private void button_checkmsg_Click(object sender, EventArgs e)
         {
             button_checkmsg.Enabled = false;
-            
+
+            var cancelSource = new CancellationTokenSource();
+
             if (radioButton_Porter.Checked)
                 GetStem = porter.GetStem;
             else if(radioButton_Z.Checked)
@@ -40,7 +42,19 @@ namespace BayesSpamFilterApp
             else
                 harshness = FilterHarshness.Жесткий;
 
-            List<string> words_in_msg = filter.GetMessageStems(textBox_message.Text);
+            List<string> words_in_msg = new();
+            try
+            {
+                words_in_msg = filter.GetMessageStems(textBox_message.Text);
+            }
+            catch(InvalidMessageException ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!");
+                label_result.Text = "";
+                updating.Join();
+                button_checkmsg.Enabled = true;
+                return;
+            }
 
             updating.Join();
 
@@ -57,10 +71,7 @@ namespace BayesSpamFilterApp
             button_checkmsg.Enabled = true;
         }
 
-        class InvalidMessageException: Exception
-        {
-
-        }
+        
 
     }
 }

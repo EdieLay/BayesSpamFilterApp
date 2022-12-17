@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BayesSpamFilterApp
 {
-    
+    class InvalidMessageException : Exception
+    {
+        public InvalidMessageException(string message)
+            : base(message) { }
+    }
 
     public enum FilterHarshness // процент, свыше которого письмо определится как спам (чем больше, тем меньше шанс срабатывания)
     {
@@ -58,6 +62,8 @@ namespace BayesSpamFilterApp
         public List<string> GetMessageStems(string message)
         {
             List<string> words_in_msg = txtproc.ProcessWords(message);
+            if (!words_in_msg.Any())
+                throw new InvalidMessageException("Сообщение должно содержать хотя бы одно русское слово");
             words_in_msg = words_in_msg.Distinct().ToList();
             return words_in_msg;
         }
