@@ -87,7 +87,7 @@ namespace BayesSpamFilterApp
 
 
 
-            if (GetR1fromRV(RV, out string R1) & GetRV(R1, out string R2) & GetR1fromRV(R2, out R2)) // GetR1fromRV(R2, out R2) - область R1 после первого сочетания "гласная-согласная"
+            if (GetR1fromRV(RV, out string R1) && GetRV(R1, out string R2) && GetR1fromRV(R2, out R2)) // GetR1fromRV(R2, out R2) - область R1 после первого сочетания "гласная-согласная"
             {
                 int R2length = R2.Length;
                 if (DeleteEnding(ref R2, Derivational))             // 3 шаг
