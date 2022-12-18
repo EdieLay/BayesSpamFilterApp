@@ -75,13 +75,13 @@ namespace BayesSpamFilterApp
                             flagEqually = false;
                             break;
                         }
-                    if (flagEqually && mwlen > max && ComplianceBasis(wordTest[..^max]))
+                    if (flagEqually && mwlen > max && ComplianceBasis(wordTest[..^(max - 2)]))
                     {
                         max = mwlen;
                     }
                 }
             }
-            return word[..^max];
+            return word[..^(max - 2)];
         }
     }
 }
