@@ -21,8 +21,6 @@ namespace BayesSpamFilterApp
         {
             button_checkmsg.Enabled = false;
 
-            var cancelSource = new CancellationTokenSource();
-
             if (radioButton_Porter.Checked)
                 GetStem = porter.GetStem;
             else if(radioButton_Z.Checked)

@@ -34,6 +34,7 @@
             this.radioButton_Porter = new System.Windows.Forms.RadioButton();
             this.radioButton_Z = new System.Windows.Forms.RadioButton();
             this.groupBox_stemmers = new System.Windows.Forms.GroupBox();
+            this.radioButton_Stemka = new System.Windows.Forms.RadioButton();
             this.button_checkmsg = new System.Windows.Forms.Button();
             this.groupBox_filtering = new System.Windows.Forms.GroupBox();
             this.button_tip = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.radioButton_soft = new System.Windows.Forms.RadioButton();
             this.toolTip_harshness = new System.Windows.Forms.ToolTip(this.components);
             this.label_result = new System.Windows.Forms.Label();
-            this.radioButton_Stemka = new System.Windows.Forms.RadioButton();
             this.groupBox_stemmers.SuspendLayout();
             this.groupBox_filtering.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +99,17 @@
             this.groupBox_stemmers.TabIndex = 4;
             this.groupBox_stemmers.TabStop = false;
             this.groupBox_stemmers.Text = "Выберите стеммер";
+            // 
+            // radioButton_Stemka
+            // 
+            this.radioButton_Stemka.AutoSize = true;
+            this.radioButton_Stemka.Location = new System.Drawing.Point(14, 92);
+            this.radioButton_Stemka.Name = "radioButton_Stemka";
+            this.radioButton_Stemka.Size = new System.Drawing.Size(79, 24);
+            this.radioButton_Stemka.TabIndex = 4;
+            this.radioButton_Stemka.TabStop = true;
+            this.radioButton_Stemka.Text = "Stemka";
+            this.radioButton_Stemka.UseVisualStyleBackColor = true;
             // 
             // button_checkmsg
             // 
@@ -190,17 +201,6 @@
             this.label_result.TabIndex = 7;
             this.label_result.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // radioButton_Stemka
-            // 
-            this.radioButton_Stemka.AutoSize = true;
-            this.radioButton_Stemka.Location = new System.Drawing.Point(14, 92);
-            this.radioButton_Stemka.Name = "radioButton_Stemka";
-            this.radioButton_Stemka.Size = new System.Drawing.Size(79, 24);
-            this.radioButton_Stemka.TabIndex = 4;
-            this.radioButton_Stemka.TabStop = true;
-            this.radioButton_Stemka.Text = "Stemka";
-            this.radioButton_Stemka.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -213,7 +213,7 @@
             this.Controls.Add(this.textBox_message);
             this.Controls.Add(this.label_input);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "к";
             this.groupBox_stemmers.ResumeLayout(false);
             this.groupBox_stemmers.PerformLayout();
             this.groupBox_filtering.ResumeLayout(false);
