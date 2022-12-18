@@ -9,6 +9,9 @@ namespace BayesSpamFilterApp
     internal class StemmerStemka : IStemmer
     {
         Dictionary<string, int> ModelsWordEndings { get; set; }
+        char[] VowelLetters = {
+            'а', 'е', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'
+        };
 
         public StemmerStemka()
         {
@@ -40,9 +43,9 @@ namespace BayesSpamFilterApp
             int wlen = word.Length;
             for (int i = 0; i < wlen; i++)
             {
-                for (int j = 0; j < wlen; j++)
+                for (int j = 0; j < VowelLetters.Length; j++)
                 {
-                    if (word[i] == word[j])
+                    if (word[i] == VowelLetters[j])
                     {
                         flagCompliance = true;
                         break;
