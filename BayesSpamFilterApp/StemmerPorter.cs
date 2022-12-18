@@ -83,7 +83,7 @@ namespace BayesSpamFilterApp
                         if (!DeleteEnding(ref RV, Noun))
                             return word[..(word.Length - RVlength + RV.Length)];
             }
-            if (RV.Length > 1 & RV[^1] == 'и') RV = RV[..^1];       // 2 шаг
+            if (RV.Length > 1 && RV[^1] == 'и') RV = RV[..^1];       // 2 шаг
 
 
 
