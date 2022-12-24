@@ -31,13 +31,8 @@ namespace BayesSpamFilterApp
             txtproc = new TextProcessor();
         }
 
-        public bool IsSpam(List<string> words_in_msg, FilterHarshness percent)
-        {
-            double prob = (double)percent / 100;
-            return ProbOfSpam(words_in_msg) >= prob;
-        }
 
-        double ProbOfSpam(List<string> words_in_msg) 
+        public double ProbOfSpam(List<string> words_in_msg) 
         {
             double spam_prob = 0, ham_prob = 0; // вероятности, что сообщение спам или хэм
             foreach (var word in wordsdb.wordsfreq)

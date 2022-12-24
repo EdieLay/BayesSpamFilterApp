@@ -62,6 +62,7 @@ namespace BayesSpamFilterApp
                 temp = GetStem(temp); // проводим стемминг
                 processedwords.Add(temp);
             }
+            processedwords = processedwords.Distinct().ToList();
             return processedwords;
         }
 

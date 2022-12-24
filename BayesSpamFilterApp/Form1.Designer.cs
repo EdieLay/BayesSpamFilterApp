@@ -62,6 +62,7 @@
             this.textBox_message.Location = new System.Drawing.Point(12, 80);
             this.textBox_message.Multiline = true;
             this.textBox_message.Name = "textBox_message";
+            this.textBox_message.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox_message.Size = new System.Drawing.Size(633, 480);
             this.textBox_message.TabIndex = 1;
             // 
@@ -197,7 +198,7 @@
             this.label_result.ForeColor = System.Drawing.Color.Red;
             this.label_result.Location = new System.Drawing.Point(664, 433);
             this.label_result.Name = "label_result";
-            this.label_result.Size = new System.Drawing.Size(253, 46);
+            this.label_result.Size = new System.Drawing.Size(253, 100);
             this.label_result.TabIndex = 7;
             this.label_result.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

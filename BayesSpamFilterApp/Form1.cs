@@ -47,8 +47,8 @@ namespace BayesSpamFilterApp
             }
             catch(InvalidMessageException ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка!");
                 label_result.Text = "";
+                MessageBox.Show(ex.Message, "Ошибка!");
                 updating.Join();
                 button_checkmsg.Enabled = true;
                 return;
@@ -56,20 +56,20 @@ namespace BayesSpamFilterApp
 
             updating.Join();
 
-            if (filter.IsSpam(words_in_msg, harshness))
+            double prob;
+            if ((prob = filter.ProbOfSpam(words_in_msg)) >= (double)harshness/100.0)
             {
                 label_result.ForeColor = System.Drawing.Color.Red;
-                label_result.Text = "спам";
+                label_result.Text = $"спам\n{prob*100:f2}%";
             }
             else
             {
                 label_result.ForeColor = System.Drawing.Color.Green;
-                label_result.Text = "не спам";
+                label_result.Text = $"не спам\n{prob*100:f2}%";
             }
             button_checkmsg.Enabled = true;
         }
 
-        
 
     }
 }
