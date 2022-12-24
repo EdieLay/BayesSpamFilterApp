@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace BayesSpamFilterApp
 {
     public partial class Form1 : Form
@@ -20,6 +22,8 @@ namespace BayesSpamFilterApp
         private void button_checkmsg_Click(object sender, EventArgs e)
         {
             button_checkmsg.Enabled = false;
+            label_result.ForeColor = System.Drawing.Color.Gray;
+            label_result.Text = "ждите";
 
             if (radioButton_Porter.Checked)
                 GetStem = porter.GetStem;
@@ -29,6 +33,7 @@ namespace BayesSpamFilterApp
                 GetStem = stemka.GetStem;
 
             filter.txtproc = new(GetStem);
+
 
             Thread updating = new(filter.UpdateFrequencies);
             updating.Start();
@@ -70,6 +75,14 @@ namespace BayesSpamFilterApp
             button_checkmsg.Enabled = true;
         }
 
-
+        private void button_file_Click(object sender, EventArgs e)
+        {
+            openFileDialog_file.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            if (openFileDialog_file.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = openFileDialog_file.FileName; // получаем имя выбранного файла
+            string message = File.ReadAllText(filename); // читаем файл в строку
+            textBox_message.Text = message; // записываем её в основное поле набора текста
+        }
     }
 }

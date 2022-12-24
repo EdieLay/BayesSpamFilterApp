@@ -24,6 +24,7 @@ namespace BayesSpamFilterApp
         WordsDB wordsdb { get; set; }
         public TextProcessor txtproc { get; set; }
 
+
         public SpamFilter()
         {
             wordsdb = new();
@@ -67,7 +68,7 @@ namespace BayesSpamFilterApp
         {
             List<string> words;
             bool isspam;
-
+            
             wordsdb.wordsfreq = new(); // создаём новую, чтоб не накапливались частоты + слова там были бы с разным стеммингом
             SpamHamFreq.num_of_spam = 0;
             SpamHamFreq.num_of_ham = 0;

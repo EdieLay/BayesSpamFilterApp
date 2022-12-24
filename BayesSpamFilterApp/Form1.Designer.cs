@@ -43,6 +43,8 @@
             this.radioButton_soft = new System.Windows.Forms.RadioButton();
             this.toolTip_harshness = new System.Windows.Forms.ToolTip(this.components);
             this.label_result = new System.Windows.Forms.Label();
+            this.openFileDialog_file = new System.Windows.Forms.OpenFileDialog();
+            this.button_file = new System.Windows.Forms.Button();
             this.groupBox_stemmers.SuspendLayout();
             this.groupBox_filtering.SuspendLayout();
             this.SuspendLayout();
@@ -198,15 +200,30 @@
             this.label_result.ForeColor = System.Drawing.Color.Red;
             this.label_result.Location = new System.Drawing.Point(664, 433);
             this.label_result.Name = "label_result";
-            this.label_result.Size = new System.Drawing.Size(253, 100);
+            this.label_result.Size = new System.Drawing.Size(253, 95);
             this.label_result.TabIndex = 7;
             this.label_result.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // openFileDialog_file
+            // 
+            this.openFileDialog_file.FileName = "openFileDialog1";
+            // 
+            // button_file
+            // 
+            this.button_file.Location = new System.Drawing.Point(651, 35);
+            this.button_file.Name = "button_file";
+            this.button_file.Size = new System.Drawing.Size(143, 29);
+            this.button_file.TabIndex = 8;
+            this.button_file.Text = "Выберите файл";
+            this.button_file.UseVisualStyleBackColor = true;
+            this.button_file.Click += new System.EventHandler(this.button_file_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 572);
+            this.Controls.Add(this.button_file);
             this.Controls.Add(this.label_result);
             this.Controls.Add(this.groupBox_filtering);
             this.Controls.Add(this.button_checkmsg);
@@ -240,5 +257,7 @@
         private ToolTip toolTip_harshness;
         private Label label_result;
         private RadioButton radioButton_Stemka;
+        private OpenFileDialog openFileDialog_file;
+        private Button button_file;
     }
 }
