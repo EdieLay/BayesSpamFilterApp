@@ -23,7 +23,7 @@ namespace BayesSpamFilterApp
         {
             button_checkmsg.Enabled = false;
             label_result.ForeColor = System.Drawing.Color.Gray;
-            label_result.Text = "ждите";
+            label_result.Text = "загрузка";
 
             if (radioButton_Porter.Checked)
                 GetStem = porter.GetStem;
@@ -77,7 +77,7 @@ namespace BayesSpamFilterApp
 
         private void button_file_Click(object sender, EventArgs e)
         {
-            openFileDialog_file.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog_file.Filter = "txt files (*.txt)|*.txt";
             if (openFileDialog_file.ShowDialog() == DialogResult.Cancel)
                 return;
             string filename = openFileDialog_file.FileName; // получаем им€ выбранного файла

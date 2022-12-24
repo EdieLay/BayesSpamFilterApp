@@ -53,11 +53,11 @@
             // 
             this.label_input.AutoSize = true;
             this.label_input.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label_input.Location = new System.Drawing.Point(31, 23);
+            this.label_input.Location = new System.Drawing.Point(12, 23);
             this.label_input.Name = "label_input";
-            this.label_input.Size = new System.Drawing.Size(614, 41);
+            this.label_input.Size = new System.Drawing.Size(672, 41);
             this.label_input.TabIndex = 0;
-            this.label_input.Text = "Вставьте сообщение для проверки на спам";
+            this.label_input.Text = "Вставьте сообщение для проверки на спам или";
             // 
             // textBox_message
             // 
@@ -198,9 +198,9 @@
             // 
             this.label_result.Font = new System.Drawing.Font("Ustroke", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_result.ForeColor = System.Drawing.Color.Red;
-            this.label_result.Location = new System.Drawing.Point(664, 433);
+            this.label_result.Location = new System.Drawing.Point(651, 433);
             this.label_result.Name = "label_result";
-            this.label_result.Size = new System.Drawing.Size(253, 95);
+            this.label_result.Size = new System.Drawing.Size(287, 95);
             this.label_result.TabIndex = 7;
             this.label_result.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -210,9 +210,10 @@
             // 
             // button_file
             // 
-            this.button_file.Location = new System.Drawing.Point(651, 35);
+            this.button_file.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button_file.Location = new System.Drawing.Point(677, 23);
             this.button_file.Name = "button_file";
-            this.button_file.Size = new System.Drawing.Size(143, 29);
+            this.button_file.Size = new System.Drawing.Size(174, 41);
             this.button_file.TabIndex = 8;
             this.button_file.Text = "Выберите файл";
             this.button_file.UseVisualStyleBackColor = true;
