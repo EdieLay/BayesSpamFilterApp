@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BayesSpamFilterApp
 {
-    class InvalidMessageException : Exception
+    class InvalidMessageException : Exception // ОПРЕДЕЛЕНИЕ ИСКЛЮЧЕНИЯ
     {
         public InvalidMessageException(string message)
             : base(message) { }
@@ -17,7 +17,7 @@ namespace BayesSpamFilterApp
         Мягкий = 65,
         Средний = 50,
         Жесткий = 35
-    }
+    } // ОПРЕДЕЛЕНИЕ ПЕРЕЧИСЛЕНИЯ
 
     internal class SpamFilter
     {

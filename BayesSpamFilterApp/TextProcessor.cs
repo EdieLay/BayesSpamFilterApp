@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BayesSpamFilterApp
 {
-    public delegate string GetStemDelegate(string value);
+    public delegate string GetStemDelegate(string value); // ОПРЕДЕЛЕНИЕ ДЕЛЕГАТА
     internal class TextProcessor
     {
         public GetStemDelegate GetStem { get; set; }

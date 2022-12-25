@@ -54,7 +54,7 @@ namespace BayesSpamFilterApp
                 "аем", "анн", "авш", "ающ", "ащ", "яем", "янн", "явш", "яющ", "ящ", "ивш", "ывш", "ующ"
             };
 
-            var select0 = Participle
+            var select0 = Participle // ИСПОЛЬЗОВАНИЕ LINQ
                 .Join(Adjective,
                 p => 1,
                 a => 1,

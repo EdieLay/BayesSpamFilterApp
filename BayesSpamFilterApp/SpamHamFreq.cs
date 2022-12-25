@@ -8,7 +8,7 @@ namespace BayesSpamFilterApp
 {
     internal class SpamHamFreq
     {
-        public static int num_of_spam { get; set; } = 0;
+        public static int num_of_spam { get; set; } = 0; // общее кол-во спам сообщений
         public static int num_of_ham { get; set; } = 0;
         public int met_in_spam { get; set; }
         public int met_in_ham { get; set; }

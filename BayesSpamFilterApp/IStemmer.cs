@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BayesSpamFilterApp
 {
-    internal interface IStemmer
+    internal interface IStemmer // ОПРЕДЕЛЕНИЕ ИНТЕРФЕЙСА
     {
         string GetStem(string word);
     }

@@ -56,7 +56,7 @@ namespace BayesSpamFilterApp
             return (flagCompliance && (wlen >= 2));
         }
 
-        public string GetStem(string word)
+        public string GetStem(string word) // РЕАЛИЗАЦИЯ ИНТЕРФЕЙСА
         {
             int max = 0;
             int wlen = word.Length;

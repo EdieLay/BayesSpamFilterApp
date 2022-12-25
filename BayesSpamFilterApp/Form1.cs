@@ -21,11 +21,11 @@ namespace BayesSpamFilterApp
 
         private void button_checkmsg_Click(object sender, EventArgs e)
         {
-            button_checkmsg.Enabled = false;
+            button_checkmsg.Enabled = false; // äåëàåì êíîïêó íåàêòèâíîé
             label_result.ForeColor = System.Drawing.Color.Gray;
             label_result.Text = "çàãğóçêà";
 
-            if (radioButton_Porter.Checked)
+            if (radioButton_Porter.Checked) // ÈÑÏÎËÜÇÎÂÀÍÈÅ ÄÅËÅÃÀÒÀ
                 GetStem = porter.GetStem;
             else if(radioButton_Z.Checked)
                 GetStem = stemz.GetStem;
@@ -35,10 +35,10 @@ namespace BayesSpamFilterApp
             filter.txtproc = new(GetStem);
 
 
-            Thread updating = new(filter.UpdateFrequencies);
+            Thread updating = new(filter.UpdateFrequencies); // ÈÑÏÎËÜÇÎÂÀÍÈÅ ÏÎÒÎÊÎÂ
             updating.Start();
 
-            if (radioButton_soft.Checked)
+            if (radioButton_soft.Checked) // ÈÑÏÎËÜÇÎÂÀÍÈÅ ÏÅĞÅ×ÈÑËÅÍÈß
                 harshness = FilterHarshness.Ìÿãêèé;
             else if (radioButton_mid.Checked)
                 harshness = FilterHarshness.Ñğåäíèé;
@@ -50,7 +50,7 @@ namespace BayesSpamFilterApp
             {
                 words_in_msg = filter.GetMessageStems(textBox_message.Text);
             }
-            catch(InvalidMessageException ex)
+            catch(InvalidMessageException ex) // ÈÑÏÎËÜÇÎÂÀÍÈÅ ÈÑÊËŞ×ÅÍÈß
             {
                 label_result.Text = "";
                 MessageBox.Show(ex.Message, "Îøèáêà!");
